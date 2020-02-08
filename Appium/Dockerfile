@@ -62,9 +62,9 @@ ENV JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/jre" \
 #=====================
 # Install Android SDK
 #=====================
-ARG SDK_VERSION=sdk-tools-linux-3859397
-ARG ANDROID_BUILD_TOOLS_VERSION=26.0.0
-ARG ANDROID_PLATFORM_VERSION="android-25"
+ARG SDK_VERSION=sdk-tools-linux-4333796
+ARG ANDROID_BUILD_TOOLS_VERSION=29.0.3
+ARG ANDROID_PLATFORM_VERSION="android-27"
 
 ENV SDK_VERSION=$SDK_VERSION \
     ANDROID_BUILD_TOOLS_VERSION=$ANDROID_BUILD_TOOLS_VERSION \
@@ -90,7 +90,7 @@ ENV PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools
 # Install latest nodejs, npm, appium
 # Using this workaround to install Appium -> https://github.com/appium/appium/issues/10020 -> Please remove this workaround asap
 #====================================
-ARG APPIUM_VERSION=1.7.0-beta
+ARG APPIUM_VERSION=1.15.1
 ENV APPIUM_VERSION=$APPIUM_VERSION
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash && \
@@ -113,7 +113,7 @@ RUN wget -nv -O RemoteAppiumManager.jar "https://github.com/AppiumTestDistributi
 #==================================
 # Fix Issue with timezone mismatch
 #==================================
-ENV TZ="US/Pacific"
+ENV TZ="Asia/Tehran"
 RUN echo "${TZ}" > /etc/timezone
 
 #===============
